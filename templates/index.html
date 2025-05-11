@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Our Trusted Butchers</h2>
+    
+    <div class="vendor-list">
+        {% for id, vendor in vendors.items() %}
+        <div class="vendor-card">
+            <h3>{{ vendor.name }}</h3>
+            <p><strong>Specialty:</strong> {{ vendor.specialty }}</p>
+            <p><strong>Location:</strong> {{ vendor.location }}</p>
+            <p><strong>Rating:</strong> {{ vendor.rating }}</p>
+            <a href="{{ url_for('order', vendor_id=id) }}" class="order-btn">Order Now</a>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
